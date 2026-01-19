@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HC Shopping - Modern Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>HC Shopping</h1>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+
+                <div class="nav-icons">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to HC Shopping</h1>
+                <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
+                <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Shopping">
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="categoryFilter">Category:</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="home">Home & Garden</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priceFilter">Price Range:</label>
+                    <select id="priceFilter">
+                        <option value="all">All Prices</option>
+                       <option value="0-50">Under LKR 50</option>
+                       <option value="50-100">LKR 50 - LKR 100</option>
+                       <option value="100-200">LKR 100 - LKR 200</option>
+                       <option value="200+">Over LKR 200</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortFilter">Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="name">Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+            <strong>Total: LKR <span id="cartTotal">0.00</span></strong>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About HC Shopping</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to HC Shopping, your premier destination for quality products at competitive prices. We believe in providing our customers with an exceptional shopping experience, combining convenience, variety, and value.</p>
+                    <p>Our mission is to make online shopping easy, enjoyable, and accessible to everyone. With a carefully curated selection of products across multiple categories, we're here to meet all your shopping needs.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="About Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@hcshopping.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Shopping Street, Commerce City, CC 12345</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HC Shopping</h3>
+                    <p>Your trusted online shopping destination for quality products and great service.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Clothing</a></li>
+                        <li><a href="#">Home & Garden</a></li>
+                        <li><a href="#">Sports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HC Shopping. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div class="filter-group">
+    <label for="categoryFilter">Category:</label>
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="food">Food & Bakery</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="home">Home & Garden</option>
+        <option value="sports">Sports</option>
+    </select>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
